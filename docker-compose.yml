@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: chat_agent_api
+    ports:
+      - "8000:8000"
+    environment:
+      # Conecta ao host da máquina física
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=llama3
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./app:/code/app # Hot-reload para desenvolvimento

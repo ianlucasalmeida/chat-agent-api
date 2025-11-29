@@ -1,0 +1,50 @@
+# ==========================================
+# Python Artifacts (Arquivos compilados)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# Virtual Environments (Ambiente Virtual)
+# ==========================================
+venv/
+.venv/
+env/
+.env_bkp/
+
+# ==========================================
+# Secrets & Configs (SEGURANÇA CRÍTICA)
+# ==========================================
+.env
+.env.local
+.env.*.local
+
+# ==========================================
+# Testes e Qualidade de Código
+# ==========================================
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# ==========================================
+# IDEs e Editores (Configurações Pessoais)
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================================
+# Docker
+# ==========================================
+docker-compose.override.yml
+
+# ==========================================
+# Arquivos de Sistema Operacional (Lixo)
+# ==========================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
