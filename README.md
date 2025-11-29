@@ -39,18 +39,19 @@ sequenceDiagram
     User->>API: POST "Quanto e 10 vezes 10?"
     API->>Orchestrator: run_pipeline()
     Orchestrator->>ManualAgent: run()
-    ManualAgent->>Llama3: "Decida: Texto ou Tool?"
-    
-    alt Decisao de Calculo
-        Llama3-->>ManualAgent: "TOOL_CALCULATOR: 10 * 10"
-        ManualAgent->>ManualAgent: Sanitizacao & Regex
+    ManualAgent->>Llama3: Decidir se é Texto ou Tool
+
+    alt É um cálculo
+        Llama3-->>ManualAgent: TOOL_CALCULATOR: 10 * 10
+        ManualAgent->>ManualAgent: Sanitização e Regex
         ManualAgent->>MathTool: safe_calculator("10 * 10")
         MathTool-->>ManualAgent: 100
-        ManualAgent-->>User: "Resultado calculado: 100"
-    else Conversa Normal
-        Llama3-->>ManualAgent: "Sou uma IA..."
-        ManualAgent-->>User: "Sou uma IA..."
+        ManualAgent-->>User: Resultado calculado: 100
+    else É conversa normal
+        Llama3-->>ManualAgent: Resposta em linguagem natural
+        ManualAgent-->>User: Resposta em linguagem natural
     end
+
 ```
 
 ### Estratégia de Resiliência (Fallback)
