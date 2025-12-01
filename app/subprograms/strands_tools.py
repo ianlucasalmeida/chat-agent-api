@@ -1,7 +1,6 @@
 from strands import tool
 from app.subprograms.math_tools import safe_calculator
 
-# O decorador @tool diz ao Agente: "Ei, você pode usar isso aqui!"
 @tool
 def calculator_tool(expression: str) -> str:
     """
@@ -14,5 +13,5 @@ def calculator_tool(expression: str) -> str:
     Returns:
         str: The calculated result.
     """
-    # Reutiliza sua lógica segura existente
+
     return safe_calculator(expression)
