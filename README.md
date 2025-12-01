@@ -64,11 +64,12 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     A[Inicio] --> B{SDK Oficial Disponivel?}
-    B -- Sim (AWS Creds) --> C[Usa Strands SDK]
-    B -- Nao (Erro/Offline) --> D[Ativa ManualAgent (HTTP)]
+    B -- Sim - AWS Creds --> C[Usa Strands SDK]
+    B -- Nao - Erro ou Offline --> D[Ativa ManualAgent via HTTP]
     C --> E[Ollama API]
     D --> E
     E --> F[Resposta Final]
+
 ```
 
 ---
